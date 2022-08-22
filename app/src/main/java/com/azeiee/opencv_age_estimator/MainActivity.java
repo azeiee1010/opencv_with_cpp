@@ -1,12 +1,8 @@
 package com.azeiee.opencv_age_estimator;
 
-import android.graphics.Camera;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.azeiee.opencv_age_estimator.databinding.ActivityMainBinding;
 
@@ -36,7 +32,7 @@ public class MainActivity extends CameraActivity {
 
     private ActivityMainBinding binding;
 
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+    private final BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
             switch (status){
@@ -51,7 +47,7 @@ public class MainActivity extends CameraActivity {
         }
     };
 
-    CameraBridgeViewBase.CvCameraViewListener2 mCVcameraListner = new CameraBridgeViewBase.CvCameraViewListener2() {
+    CameraBridgeViewBase.CvCameraViewListener2 mCvCameraListner = new CameraBridgeViewBase.CvCameraViewListener2() {
         @Override
         public void onCameraViewStarted(int width, int height) {
 
@@ -79,7 +75,7 @@ public class MainActivity extends CameraActivity {
        /* TextView tv = binding.sampleText;
         tv.setText(stringFromJNI());*/
         binding.OpenCVCameraView.setVisibility(View.VISIBLE);
-        binding.OpenCVCameraView.setCvCameraViewListener(mCVcameraListner);
+        binding.OpenCVCameraView.setCvCameraViewListener(mCvCameraListner);
     }
 
     @Override
